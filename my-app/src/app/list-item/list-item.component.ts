@@ -1,5 +1,7 @@
-import { AppComponent } from './../app.component';
 import { Component, OnInit } from '@angular/core';
+
+import { Item } from './../item';
+import { AppComponent } from './../app.component';
 
 @Component({
   selector: 'app-list-item',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-item.component.scss']
 })
 export class ListItemComponent implements OnInit {
-  collection: any;
+  collection: Item[];
   constructor(private _AppComponent: AppComponent) { }
 
   ngOnInit() {
