@@ -1,12 +1,14 @@
 <app-menu></app-menu>
 <app-list-item></app-list-item>
 <div class="container">
-  <form class="form" novalidate>
+  <form class="form" novalidate #form="ngForm">
     <div class="form-group">
-      <input type="text" [(ngModel)]="newItem.name" name="name" class="form-control" placeholder="Nom et prénom">
+      <input #name="ngModel" type="text" [(ngModel)]="newItem.name" name="name" class="form-control" placeholder="Nom et prénom" required minlength="2">
+      <div [hidden]="name.valid || !newItem.name " class="alert alert-danger">Champ invalide</div>
     </div>
     <div class="form-group">
-      <input type="text" [(ngModel)]="newItem.reference" name="reference" class="form-control" placeholder="ex : 1234">
+      <input type="text" #reference="ngModel" [(ngModel)]="newItem.reference" name="reference" class="form-control" placeholder="ex : 1234" required minlength="4">
+      <div [hidden]="reference.valid || !newItem.reference " class="alert alert-danger">Champ invalide</div>
     </div>
     <div class="form-group">
       <select class="form-control" [(ngModel)]="newItem.state" name="state">
@@ -15,6 +17,6 @@
         <option [ngValue]="0">Commande livrée</option>
       </select>
     </div>
-    <button type="submit" (click)="addItem()" class="btn btn-primary">Envoyer</button>
+    <button [disabled]="form.invalid" type="submit" (click)="addItem()" class="btn btn-primary">Envoyer</button>
   </form>
 </div>
