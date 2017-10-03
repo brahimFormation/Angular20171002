@@ -1,19 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Item } from './item';
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  collection: any;
-  newItem: any;
+  collection: Item[];
+  newItem: Item;
 
   ngOnInit(): void {
     this.collection = [
-      {reference: '1234', name: 'Marina', state: 0},
-      {reference: '2314', name: 'Patrick', state: 1},
-      {reference: '2277', name: 'Quentin', state: 2}
+      new Item({reference: '1234', name: 'Marina', state: 0}),
+      new Item({reference: '2314', name: 'Patrick', state: 1}),
+      new Item({reference: '2277', name: 'Quentin', state: 2})
     ];
     this.resetNewItem();
   }
@@ -24,6 +27,6 @@ export class AppComponent implements OnInit {
   }
 
   resetNewItem() {
-    this.newItem = {reference: '', name: '', state: 0};
+    this.newItem = new Item({reference: '', name: '', state: 0});
   }
 }
