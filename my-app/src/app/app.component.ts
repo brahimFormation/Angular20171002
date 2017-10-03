@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   collection: any;
+  newItem: any;
 
   ngOnInit(): void {
     this.collection = [
@@ -14,5 +15,15 @@ export class AppComponent implements OnInit {
       {reference: '2314', name: 'Patrick', state: 1},
       {reference: '2277', name: 'Quentin', state: 2}
     ];
+    this.resetNewItem();
+  }
+
+  addItem() {
+    this.collection.push(this.newItem);
+    this.resetNewItem();
+  }
+
+  resetNewItem() {
+    this.newItem = {reference: '', name: '', state: 0};
   }
 }
