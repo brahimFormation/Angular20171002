@@ -9,6 +9,7 @@ import { ListItemComponent } from './list-item/list-item.component';
 import { ModalComponent } from './modal/modal.component';
 import { FormComponent } from './form/form.component';
 import { FilterPipe } from './filter.pipe';
+import { StateDirective } from './state.directive';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FilterPipe } from './filter.pipe';
     ListItemComponent,
     ModalComponent,
     FormComponent,
-    FilterPipe
+    FilterPipe,
+    StateDirective
   ],
   imports: [
     BrowserModule,
