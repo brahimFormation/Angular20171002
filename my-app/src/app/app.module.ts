@@ -8,6 +8,7 @@ import { MenuComponent } from './menu/menu.component';
 import { ListItemComponent } from './list-item/list-item.component';
 import { ModalComponent } from './modal/modal.component';
 import { FormComponent } from './form/form.component';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FormComponent } from './form/form.component';
     MenuComponent,
     ListItemComponent,
     ModalComponent,
-    FormComponent
+    FormComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
