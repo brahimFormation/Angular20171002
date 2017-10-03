@@ -10,9 +10,9 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.collection = [
-      {reference: '1234', name: 'Marina'},
-      {reference: '2314', name: 'Patrick'},
-      {reference: '2277', name: 'Quentin'}
+      {reference: '1234', name: 'Marina', state: 0},
+      {reference: '2314', name: 'Patrick', state: 1},
+      {reference: '2277', name: 'Quentin', state: 2}
     ];
   }
 }
