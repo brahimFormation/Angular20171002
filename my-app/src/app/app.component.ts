@@ -1,3 +1,5 @@
+import { ModalComponent } from './modal/modal.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Component, OnInit } from '@angular/core';
 
 import { Item } from './item';
@@ -16,7 +18,7 @@ export class AppComponent implements OnInit {
   refCtrl: FormControl;
   stateCtrl: FormControl;
 
-  constructor(fb: FormBuilder) {
+  constructor(fb: FormBuilder, private modalService: NgbModal) {
     this.nameCtrl = fb.control('', [
       Validators.required,
       Validators.minLength(2)
@@ -49,6 +51,7 @@ export class AppComponent implements OnInit {
       state: this.form.get('state').value
     });
     this.reset();
+    this.open();
   }
 
   // test() {
@@ -61,5 +64,10 @@ export class AppComponent implements OnInit {
   reset() {
     this.form.reset();
     this.stateCtrl.setValue(0);
+  }
+
+  open() {
+    const modalRef = this.modalService.open(ModalComponent);
+    modalRef.componentInstance.msg = 'Votre commande à bien été ajoutée';
   }
 }
