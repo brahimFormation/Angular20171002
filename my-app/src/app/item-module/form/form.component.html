@@ -1,5 +1,5 @@
 <div class="container">
-  <form class="form" novalidate (ngSubmit)="addItem()" [formGroup]="form">
+  <form class="form" novalidate (ngSubmit)="treatmentItem()" [formGroup]="form">
     <div class="form-group">
       <input formControlName="name" type="text" name="name" class="form-control" placeholder="Nom et prénom">
       <div *ngIf="isError('name')" class="alert alert-danger">Champ invalide</div>

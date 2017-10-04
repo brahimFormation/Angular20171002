@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
@@ -12,6 +12,7 @@ import { CollectionService } from './../collection.service';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
+  @Output() newItem: EventEmitter<any> = new EventEmitter();
 
   form: FormGroup;
   nameCtrl: FormControl;
@@ -50,10 +51,21 @@ export class FormComponent implements OnInit {
   open() {
     const modalRef = this.modalService.open(ModalComponent);
     modalRef.componentInstance.msg = 'Votre commande à bien été ajoutée';
+    modalRef.componentInstance.route = 'list';
   }
 
   addItem() {
     this._CollectionService.addItem({
+      name: this.form.get('name').value,
+      reference: this.form.get('ref').value,
+      state: this.form.get('state').value
+    });
+    this.reset();
+    this.open();
+  }
+
+  treatmentItem() {
+    this.newItem.emit({
       name: this.form.get('name').value,
       reference: this.form.get('ref').value,
       state: this.form.get('state').value
