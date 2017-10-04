@@ -12,6 +12,8 @@ import { FormComponent } from './form/form.component';
 import { FilterPipe } from './filter.pipe';
 import { StateDirective } from './state.directive';
 import { CollectionService } from './collection.service';
+import { HomeComponent } from './home/home.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { CollectionService } from './collection.service';
     ModalComponent,
     FormComponent,
     FilterPipe,
-    StateDirective
+    StateDirective,
+    HomeComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
