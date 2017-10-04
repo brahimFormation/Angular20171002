@@ -70,6 +70,12 @@
                                 <li class="link">
                                     <a href="../modules/AppRoutingModule.html"  data-type="entity-link" class="active" >AppRoutingModule</a>
                                 </li>
+                                <li class="link">
+                                    <a href="../modules/ItemModuleModule.html" >ItemModuleModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/ItemsRoutingModule.html" >ItemsRoutingModule</a>
+                                </li>
                         </ul>
                     </li>
             
@@ -269,6 +275,12 @@
                                        <li class="link">
                                            <a href="../modules/AppRoutingModule.html"  data-type="entity-link" class="active" >AppRoutingModule</a>
                                        </li>
+                                       <li class="link">
+                                           <a href="../modules/ItemModuleModule.html" >ItemModuleModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/ItemsRoutingModule.html" >ItemsRoutingModule</a>
+                                       </li>
                                </ul>
                            </li>
                    
@@ -457,14 +469,10 @@
 import { CommonModule } from &#x27;@angular/common&#x27;;
 import { RouterModule, Routes } from &#x27;@angular/router&#x27;;
 
-import { ListItemComponent } from &#x27;./../list-item/list-item.component&#x27;;
-import { FormComponent } from &#x27;./../form/form.component&#x27;;
 import { HomeComponent } from &#x27;./../home/home.component&#x27;;
 import { PageNotFoundComponent } from &#x27;./../page-not-found/page-not-found.component&#x27;;
 
 const appRoutes: Routes &#x3D; [
-  { path: &#x27;list&#x27;, component: ListItemComponent },
-  { path: &#x27;form&#x27;, component: FormComponent },
   { path: &#x27;home&#x27;, component: HomeComponent },
   { path: &#x27;&#x27;,
     redirectTo: &#x27;/home&#x27;,
