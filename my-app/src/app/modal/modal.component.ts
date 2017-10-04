@@ -10,10 +10,11 @@ import { Router } from '@angular/router';
 export class ModalComponent implements OnDestroy {
 
   @Input() msg;
+  @Input() route;
   constructor(public activeModal: NgbActiveModal, private _Router: Router) {}
 
   ngOnDestroy() {
-    this._Router.navigate(['list']);
+    this._Router.navigate([this.route]);
   }
 
 }

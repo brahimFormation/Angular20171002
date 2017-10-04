@@ -13,6 +13,7 @@ import { FormComponent } from './form/form.component';
 import { FilterPipe } from './filter.pipe';
 import { StateDirective } from './state.directive';
 import { CollectionService } from './collection.service';
+import { AdditemComponent } from './additem/additem.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { CollectionService } from './collection.service';
     FormComponent,
     FilterPipe,
     StateDirective,
+    AdditemComponent,
   ],
   providers: [
     CollectionService
