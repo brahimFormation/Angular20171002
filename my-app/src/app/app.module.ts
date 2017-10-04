@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ItemModuleModule } from './item-module/item-module.module';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { ItemsRoutingModule } from './items-routing/items-routing.module';
+import { environment } from '../environments/environment.prod';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
@@ -22,6 +24,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     BrowserModule,
     NgbModule.forRoot(),
     ItemModuleModule,
+    ItemsRoutingModule,
     AppRoutingModule
   ],
   entryComponents: [
