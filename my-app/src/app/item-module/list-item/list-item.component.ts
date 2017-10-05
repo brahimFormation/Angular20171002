@@ -9,14 +9,17 @@ import { Item } from './../item';
   styleUrls: ['./list-item.component.scss']
 })
 export class ListItemComponent implements OnInit {
-  collection: Item[];
-  constructor(private _CollectionService: CollectionService) { }
+  collection: any;
+  constructor(private _CollectionService: CollectionService) { 
+    
+  }
 
   ngOnInit() {
     this.collection = this._CollectionService.collection;
   }
 
-  changeState(item: Item, state: number) {
-    item.state = state;
+  changeState(item: any, state: number) {
+    console.log(item.key)
+    this._CollectionService.changeState(item.key, state);
   }
 }
