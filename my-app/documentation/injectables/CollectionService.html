@@ -91,6 +91,9 @@
                                 id="xs-components-links"
                             >
                                 <li class="link">
+                                    <a href="../components/AdditemComponent.html" >AdditemComponent</a>
+                                </li>
+                                <li class="link">
                                     <a href="../components/AppComponent.html" >AppComponent</a>
                                 </li>
                                 <li class="link">
@@ -296,6 +299,9 @@
                                        id="components-links"
                    >
                                        <li class="link">
+                                           <a href="../components/AdditemComponent.html" >AdditemComponent</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../components/AppComponent.html" >AppComponent</a>
                                        </li>
                                        <li class="link">
@@ -474,6 +480,9 @@
                                     <li>
                                          <a href="#collection">collection</a>
                                     </li>
+                                    <li>
+                                         <a href="#itemsRef">itemsRef</a>
+                                    </li>
                                 </ul>
                             </td>
                         </tr>
@@ -489,7 +498,7 @@
                                          <a href="#addItem">addItem</a>
                                     </li>
                                     <li>
-                                         <a href="#getItems">getItems</a>
+                                         <a href="#changeState">changeState</a>
                                     </li>
                                 </ul>
                             </td>
@@ -504,12 +513,12 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(database: AngularFireDatabase)</code>
+                                    <code>constructor(afDb: AngularFireDatabase)</code>
                                 </td>
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/item-module/collection.service.ts:8</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/item-module/collection.service.ts:9</a></div>
                                         </td>
                                     </tr>
             
@@ -528,7 +537,7 @@
                                                     </thead>
                                                     <tbody>
                                                             <tr>
-                                                              <td>database</td>
+                                                              <td>afDb</td>
                                                               <td>
                                                                         <code>AngularFireDatabase</code>
                                                               </td>
@@ -567,7 +576,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/item-module/collection.service.ts:25</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/item-module/collection.service.ts:30</a></div>
                                         </td>
                                     </tr>
             
@@ -615,20 +624,20 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <a name="getItems"></a>
-                                    <span class="name"><b> getItems</b><a href="#getItems"><span class="fa fa-link"></span></a></span>
+                                    <a name="changeState"></a>
+                                    <span class="name"><b> changeState</b><a href="#changeState"><span class="fa fa-link"></span></a></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-            <code>getItems()</code>
+            <code>changeState(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, newState: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                                 </td>
                             </tr>
             
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/item-module/collection.service.ts:17</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/item-module/collection.service.ts:34</a></div>
                                         </td>
                                     </tr>
             
@@ -636,9 +645,47 @@
                                 <td class="col-md-4">
             
                                         <div class="io-description">
+                                                <b>Parameters :</b>
+                                                <table class="params">
+                                                    <thead>
+                                                        <tr>
+                                                            <td>Name</td>
+                                                            <td>Type</td>
+                                                            <td>Optional</td>
+                                                            <td>Description</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            <tr>
+                                                              <td>key</td>
+                                                              <td>
+                                                                      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>newState</td>
+                                                              <td>
+                                                                      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                    </tbody>
+                                                </table>
+                                        </div>
+                                        <div>
+                                        </div>
+                                        <div class="io-description">
                                             <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
             
                                         </div>
+                                            <div class="io-description">
+                                                
+                                            </div>
                                 </td>
                             </tr>
                         </tbody>
@@ -660,13 +707,13 @@
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>collection:     <code>any[]</code>
+                                    <code>collection:     <code>Observable&lt;[]&gt;</code>
             </code>
                                 </td>
                             </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <i>Type : </i>    <code>any[]</code>
+                                        <i>Type : </i>    <code>Observable&lt;[]&gt;</code>
             
                                     </td>
                                 </tr>
@@ -679,38 +726,75 @@
             
                         </tbody>
                     </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="itemsRef"></a>
+                                    <span class="name"><b> itemsRef</b><a href="#itemsRef"><span class="fa fa-link"></span></a></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>itemsRef:     <code>AngularFireList&lt;literal type&gt;</code>
+            </code>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Type : </i>    <code>AngularFireList&lt;literal type&gt;</code>
+            
+                                    </td>
+                                </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/item-module/collection.service.ts:9</a></div>
+                                        </td>
+                                    </tr>
+            
+            
+                        </tbody>
+                    </table>
             </section>
     </div>
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { AngularFireDatabase, AngularFireList } from &#x27;angularfire2/database&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import { AngularFireDatabase, AngularFireList, AngularFireAction } from &#x27;angularfire2/database&#x27;;
 import { Item } from &#x27;./item&#x27;;
 import { Injectable } from &#x27;@angular/core&#x27;;
-// import { Observable } from &#x27;rxjs/Rx&#x27;;
+import { Observable } from &#x27;rxjs/Observable&#x27;;
 
 @Injectable()
 export class CollectionService {
-  collection: any[] &#x3D; [];
-  constructor(private database: AngularFireDatabase) {
-    // const Observalbe &#x3D; Observable.of(this.database.list(&#x27;/collection&#x27;));
-    // this.Observable.subscribe((data) &#x3D;&gt; {
-    //   this.collection &#x3D; data;
-    // })
-    this.getItems();
+  collection: Observable&lt;AngularFireAction&lt;any&gt;[]&gt;;
+  itemsRef: AngularFireList&lt;{}&gt;;
+  
+  constructor(private afDb: AngularFireDatabase) {
+    this.itemsRef &#x3D; afDb.list(&#x27;collection&#x27;);
+    // this.collection &#x3D; this.itemsRef.valueChanges();
+    this.collection &#x3D; this.itemsRef.snapshotChanges();
+    // this.getCollection();
   }
 
-  getItems() {
-    this.database.list(&#x27;/collection&#x27;)
-    .valueChanges()
-    .subscribe((data) &#x3D;&gt; {
-      this.collection &#x3D; data;
-    });
-  }
-
+  // getCollection() {
+  //   this.itemsRef.snapshotChanges()
+  //   .subscribe(res &#x3D;&gt; {
+  //     res.forEach(data &#x3D;&gt; {
+  //       console.log(data.key);
+  //       console.log(data.payload.val().name);
+  //       console.log(data.payload.val().reference);
+  //       console.log(data.payload.val().state);
+  //     });
+  //   })
+  // }
+  
   addItem(item: Item) {
-    this.database.list(&#x27;/collection&#x27;).push(item);
-    this.getItems();
+    this.afDb.list(&#x27;collection&#x27;).push(item);
+  }
+
+  changeState(key: string, newState: number) {
+    this.itemsRef.update(key, {state: newState});
   }
 }
 </code></pre>

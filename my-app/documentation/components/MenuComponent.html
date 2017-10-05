@@ -91,6 +91,9 @@
                                 id="xs-components-links"
                             >
                                 <li class="link">
+                                    <a href="../components/AdditemComponent.html" >AdditemComponent</a>
+                                </li>
+                                <li class="link">
                                     <a href="../components/AppComponent.html" >AppComponent</a>
                                 </li>
                                 <li class="link">
@@ -295,6 +298,9 @@
                                <ul class="links collapse "
                                        id="components-links"
                    >
+                                       <li class="link">
+                                           <a href="../components/AdditemComponent.html" >AdditemComponent</a>
+                                       </li>
                                        <li class="link">
                                            <a href="../components/AppComponent.html" >AppComponent</a>
                                        </li>
@@ -677,7 +683,7 @@ export class MenuComponent implements OnInit {
         &lt;a class&#x3D;&quot;nav-link&quot; routerLink&#x3D;&quot;/list&quot;&gt;Liste&lt;/a&gt;
       &lt;/li&gt;
       &lt;li class&#x3D;&quot;nav-item&quot;&gt;
-        &lt;a class&#x3D;&quot;nav-link&quot; routerLink&#x3D;&quot;/form&quot;&gt;Ajouter&lt;/a&gt;
+        &lt;a class&#x3D;&quot;nav-link&quot; routerLink&#x3D;&quot;/additem&quot;&gt;Ajouter&lt;/a&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/div&gt;
@@ -708,8 +714,8 @@ export class MenuComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><nav class="navbar navbar-expand-lg navbar-light bg-light">  <a class="navbar-brand" routerLink="/home">{{ title }}</a>  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">    <span class="navbar-toggler-icon"></span>  </button>  <div class="collapse navbar-collapse" id="navbarSupportedContent">    <ul class="navbar-nav mr-auto">      <li class="nav-item">        <a class="nav-link" routerLink="/list">Liste</a>      </li>      <li class="nav-item">        <a class="nav-link" routerLink="/form">Ajouter</a>      </li>    </ul>  </div></nav></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FormComponent', 'selector': 'app-form'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListItemComponent', 'selector': 'app-list-item'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'}];
+        var COMPONENT_TEMPLATE = '<div><nav class="navbar navbar-expand-lg navbar-light bg-light">  <a class="navbar-brand" routerLink="/home">{{ title }}</a>  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">    <span class="navbar-toggler-icon"></span>  </button>  <div class="collapse navbar-collapse" id="navbarSupportedContent">    <ul class="navbar-nav mr-auto">      <li class="nav-item">        <a class="nav-link" routerLink="/list">Liste</a>      </li>      <li class="nav-item">        <a class="nav-link" routerLink="/additem">Ajouter</a>      </li>    </ul>  </div></nav></div>'
+    var COMPONENTS = [{'name': 'AdditemComponent', 'selector': 'app-additem'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FormComponent', 'selector': 'app-form'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListItemComponent', 'selector': 'app-list-item'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'}];
     var DIRECTIVES = [{'name': 'StateDirective', 'selector': '[appState]'}];
     var ACTUAL_COMPONENT = {'name': 'MenuComponent'};
 </script>
