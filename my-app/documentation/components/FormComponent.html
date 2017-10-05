@@ -91,6 +91,9 @@
                                 id="xs-components-links"
                             >
                                 <li class="link">
+                                    <a href="../components/AdditemComponent.html" >AdditemComponent</a>
+                                </li>
+                                <li class="link">
                                     <a href="../components/AppComponent.html" >AppComponent</a>
                                 </li>
                                 <li class="link">
@@ -295,6 +298,9 @@
                                <ul class="links collapse "
                                        id="components-links"
                    >
+                                       <li class="link">
+                                           <a href="../components/AdditemComponent.html" >AdditemComponent</a>
+                                       </li>
                                        <li class="link">
                                            <a href="../components/AppComponent.html" >AppComponent</a>
                                        </li>
@@ -544,9 +550,6 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                 <a href="#addItem">addItem</a>
-                            </li>
-                            <li>
                                  <a href="#isError">isError</a>
                             </li>
                             <li>
@@ -557,6 +560,23 @@
                             </li>
                             <li>
                                  <a href="#reset">reset</a>
+                            </li>
+                            <li>
+                                 <a href="#treatmentItem">treatmentItem</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#newItem">newItem</a>
                             </li>
                         </ul>
                     </td>
@@ -571,7 +591,7 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <code>constructor(fb: <a href="https://angular.io/docs/ts/latest/api/forms/index/FormBuilder-class.html" target="_blank">FormBuilder</a>, modalService: NgbModal, _CollectionService: <a href="../injectables/CollectionService.html">CollectionService</a>)</code>
+                            <code>constructor(fb: <a href="https://angular.io/docs/ts/latest/api/forms/index/FormBuilder-class.html" target="_blank">FormBuilder</a>, modalService: NgbModal)</code>
                         </td>
                     </tr>
                             <tr>
@@ -612,15 +632,6 @@
                                                       </td>
                                                       <td></td>
                                                     </tr>
-                                                    <tr>
-                                                      <td>_CollectionService</td>
-                                                      <td>
-                                                                <code><a href="../injectables/CollectionService.html" target="_self" >CollectionService</a></code>
-                                                      </td>
-                                                      <td>
-                                                      </td>
-                                                      <td></td>
-                                                    </tr>
                                             </tbody>
                                         </table>
                                 </div>
@@ -631,6 +642,28 @@
     </section>
 
 
+    <section>
+        <h3 id="outputs">Outputs</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <a name="newItem"></a>
+                            <code>newItem</code>
+                        </td>
+                        <td class="col-md-10">
+                            <em><code>$event</code> type:</em>    <code>EventEmitter&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/item-module/form/form.component.ts:14</a></div>
+                                </td>
+                            </tr>
+                </tbody>
+            </table>
+    </section>
 
 
 
@@ -639,38 +672,6 @@
             <h3 id="methods">
                 Methods
             </h3>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <a name="addItem"></a>
-                            <span class="name"><b> addItem</b><a href="#addItem"><span class="fa fa-link"></span></a></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-    <code>addItem()</code>
-                        </td>
-                    </tr>
-    
-    
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/item-module/form/form.component.ts:55</a></div>
-                                </td>
-                            </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
-    
-                                <div class="io-description">
-                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-    
-                                </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
             <table class="table table-sm table-bordered">
                 <tbody>
                     <tr>
@@ -828,6 +829,38 @@
                     </tr>
                 </tbody>
             </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="treatmentItem"></a>
+                            <span class="name"><b> treatmentItem</b><a href="#treatmentItem"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>treatmentItem()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/item-module/form/form.component.ts:56</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
     </section>
 
     <section>
@@ -956,13 +989,12 @@
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import { Component, OnInit, Output, EventEmitter } from &#x27;@angular/core&#x27;;
 import { NgbModal } from &#x27;@ng-bootstrap/ng-bootstrap&#x27;;
 
 import { FormBuilder, FormGroup, FormControl, Validators } from &#x27;@angular/forms&#x27;;
 import { ModalComponent } from &#x27;../../modal/modal.component&#x27;;
 import { Item } from &#x27;../item&#x27;;
-import { CollectionService } from &#x27;./../collection.service&#x27;;
 
 @Component({
   selector: &#x27;app-form&#x27;,
@@ -970,13 +1002,14 @@ import { CollectionService } from &#x27;./../collection.service&#x27;;
   styleUrls: [&#x27;./form.component.scss&#x27;]
 })
 export class FormComponent implements OnInit {
+  @Output() newItem: EventEmitter&lt;any&gt; &#x3D; new EventEmitter();
 
   form: FormGroup;
   nameCtrl: FormControl;
   refCtrl: FormControl;
   stateCtrl: FormControl;
 
-  constructor(fb: FormBuilder, private modalService: NgbModal, private _CollectionService: CollectionService) {
+  constructor(fb: FormBuilder, private modalService: NgbModal) {
     this.nameCtrl &#x3D; fb.control(&#x27;&#x27;, [
       Validators.required,
       Validators.minLength(2)
@@ -1008,10 +1041,11 @@ export class FormComponent implements OnInit {
   open() {
     const modalRef &#x3D; this.modalService.open(ModalComponent);
     modalRef.componentInstance.msg &#x3D; &#x27;Votre commande à bien été ajoutée&#x27;;
+    modalRef.componentInstance.route &#x3D; &#x27;list&#x27;;
   }
 
-  addItem() {
-    this._CollectionService.addItem({
+  treatmentItem() {
+    this.newItem.emit({
       name: this.form.get(&#x27;name&#x27;).value,
       reference: this.form.get(&#x27;ref&#x27;).value,
       state: this.form.get(&#x27;state&#x27;).value
@@ -1026,7 +1060,7 @@ export class FormComponent implements OnInit {
 
     <div class="tab-pane fade" id="templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
-  &lt;form class&#x3D;&quot;form&quot; novalidate (ngSubmit)&#x3D;&quot;addItem()&quot; [formGroup]&#x3D;&quot;form&quot;&gt;
+  &lt;form class&#x3D;&quot;form&quot; novalidate (ngSubmit)&#x3D;&quot;treatmentItem()&quot; [formGroup]&#x3D;&quot;form&quot;&gt;
     &lt;div class&#x3D;&quot;form-group&quot;&gt;
       &lt;input formControlName&#x3D;&quot;name&quot; type&#x3D;&quot;text&quot; name&#x3D;&quot;name&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;Nom et prénom&quot;&gt;
       &lt;div *ngIf&#x3D;&quot;isError(&#x27;name&#x27;)&quot; class&#x3D;&quot;alert alert-danger&quot;&gt;Champ invalide&lt;/div&gt;
@@ -1071,8 +1105,8 @@ export class FormComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="container">  <form class="form" novalidate (ngSubmit)="addItem()" [formGroup]="form">    <div class="form-group">      <input formControlName="name" type="text" name="name" class="form-control" placeholder="Nom et prénom">      <div *ngIf="isError(\'name\')" class="alert alert-danger">Champ invalide</div>    </div>    <div class="form-group">      <input formControlName="ref" type="text" name="reference" class="form-control" placeholder="ex : 1234">      <div *ngIf="isError(\'ref\')" class="alert alert-danger">Champ invalide</div>    </div>    <div class="form-group">      <select formControlName="state" class="form-control" name="state">        <option [ngValue]="0">A livrer</option>        <option [ngValue]="1">En cours de livraison</option>        <option [ngValue]="0">Commande livrée</option>      </select>    </div>    <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Envoyer</button>  </form></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FormComponent', 'selector': 'app-form'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListItemComponent', 'selector': 'app-list-item'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'}];
+        var COMPONENT_TEMPLATE = '<div><div class="container">  <form class="form" novalidate (ngSubmit)="treatmentItem()" [formGroup]="form">    <div class="form-group">      <input formControlName="name" type="text" name="name" class="form-control" placeholder="Nom et prénom">      <div *ngIf="isError(\'name\')" class="alert alert-danger">Champ invalide</div>    </div>    <div class="form-group">      <input formControlName="ref" type="text" name="reference" class="form-control" placeholder="ex : 1234">      <div *ngIf="isError(\'ref\')" class="alert alert-danger">Champ invalide</div>    </div>    <div class="form-group">      <select formControlName="state" class="form-control" name="state">        <option [ngValue]="0">A livrer</option>        <option [ngValue]="1">En cours de livraison</option>        <option [ngValue]="0">Commande livrée</option>      </select>    </div>    <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Envoyer</button>  </form></div></div>'
+    var COMPONENTS = [{'name': 'AdditemComponent', 'selector': 'app-additem'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FormComponent', 'selector': 'app-form'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListItemComponent', 'selector': 'app-list-item'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'}];
     var DIRECTIVES = [{'name': 'StateDirective', 'selector': '[appState]'}];
     var ACTUAL_COMPONENT = {'name': 'FormComponent'};
 </script>
