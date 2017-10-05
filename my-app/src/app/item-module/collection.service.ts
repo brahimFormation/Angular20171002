@@ -1,29 +1,37 @@
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList, AngularFireAction } from 'angularfire2/database';
 import { Item } from './item';
 import { Injectable } from '@angular/core';
-// import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class CollectionService {
-  collection: any[] = [];
-  constructor(private database: AngularFireDatabase) {
-    // const Observalbe = Observable.of(this.database.list('/collection'));
-    // this.Observable.subscribe((data) => {
-    //   this.collection = data;
-    // })
-    this.getItems();
+  collection: Observable<AngularFireAction<any>[]>;
+  itemsRef: AngularFireList<{}>;
+  
+  constructor(private afDb: AngularFireDatabase) {
+    this.itemsRef = afDb.list('collection');
+    // this.collection = this.itemsRef.valueChanges();
+    this.collection = this.itemsRef.snapshotChanges();
+    // this.getCollection();
   }
 
-  getItems() {
-    this.database.list('/collection')
-    .valueChanges()
-    .subscribe((data) => {
-      this.collection = data;
-    });
-  }
-
+  // getCollection() {
+  //   this.itemsRef.snapshotChanges()
+  //   .subscribe(res => {
+  //     res.forEach(data => {
+  //       console.log(data.key);
+  //       console.log(data.payload.val().name);
+  //       console.log(data.payload.val().reference);
+  //       console.log(data.payload.val().state);
+  //     });
+  //   })
+  // }
+  
   addItem(item: Item) {
-    this.database.list('/collection').push(item);
-    this.getItems();
+    this.afDb.list('collection').push(item);
+  }
+
+  changeState(key: string, newState: number) {
+    this.itemsRef.update(key, {state: newState});
   }
 }
