@@ -16,7 +16,7 @@ export class AdditemComponent implements OnInit {
   }
 
   addItem(item: Item) {
-    console.log(item);
+    // console.log(item);
     this._CollectionService.addItem(item);
   }
 }
