@@ -551,6 +551,9 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                 <a href="#changeState">changeState</a>
+                            </li>
+                            <li>
                                  <a href="#ngOnInit">ngOnInit</a>
                             </li>
                         </ul>
@@ -580,7 +583,7 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <code>constructor()</code>
+                            <code>constructor(_CollectionService: <a href="../injectables/CollectionService.html">CollectionService</a>)</code>
                         </td>
                     </tr>
                             <tr>
@@ -589,6 +592,34 @@
                                 </td>
                             </tr>
     
+                    <tr>
+                        <td class="col-md-4">
+                                <div>
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Type</td>
+                                                    <td>Optional</td>
+                                                    <td>Description</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                      <td>_CollectionService</td>
+                                                      <td>
+                                                                <code><a href="../injectables/CollectionService.html" target="_self" >CollectionService</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
     </section>
@@ -604,7 +635,7 @@
                         </td>
                         <td class="col-md-10">
                               <p>
-                                <em>Type:</em>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                <em>Type:</em>    <code><a href="../classes/Item.html" target="_self" >Item</a></code>
 
                               </p>
                         </td>
@@ -626,6 +657,76 @@
             <h3 id="methods">
                 Methods
             </h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="changeState"></a>
+                            <span class="name"><b> changeState</b><a href="#changeState"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>changeState(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, state: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/items/components/item/item.component.ts:18</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Type</td>
+                                                    <td>Optional</td>
+                                                    <td>Description</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                      <td>key</td>
+                                                      <td>
+                                                              <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>state</td>
+                                                      <td>
+                                                              <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
             <table class="table table-sm table-bordered">
                 <tbody>
                     <tr>
@@ -665,8 +766,9 @@
 
     <div class="tab-pane fade tab-source-code" id="source">
         <pre class="line-numbers"><code class="language-typescript">import { Component, OnInit, Input } from &#x27;@angular/core&#x27;;
+import { CollectionService } from &#x27;@app/core&#x27;;
 
-// import { Item } from &#x27;@app/items&#x27;;
+import { Item } from &#x27;../../models/item&#x27;;
 
 @Component({
   selector: &#x27;app-item&#x27;,
@@ -674,29 +776,33 @@
   styleUrls: [&#x27;./item.component.scss&#x27;]
 })
 export class ItemComponent implements OnInit {
-  // @Input() item: Item;
-  @Input() item: any;
-  constructor() { }
+  @Input() item: Item;
+  constructor(private _CollectionService: CollectionService) { }
 
   ngOnInit() {
   }
 
+  changeState(key: string, state: number) {
+    console.log(key)
+    this._CollectionService.changeState(key, state);
+  }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade" id="templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;card-header&quot;&gt;
-  &lt;span [appState]&#x3D;&quot;item.payload.val().state&quot;&gt;aa&lt;/span&gt;
+  &lt;span [appState]&#x3D;&quot;item.state&quot;&gt;aa&lt;/span&gt;
 &lt;/div&gt;
 &lt;div class&#x3D;&quot;card-body&quot;&gt;
-  &lt;h4 class&#x3D;&quot;card-title&quot;&gt;{{ item.payload.val().name }}&lt;/h4&gt;
-  &lt;p class&#x3D;&quot;card-text&quot;&gt;{{ item.payload.val().reference }}&lt;/p&gt;
+  &lt;h4 class&#x3D;&quot;card-title&quot;&gt;{{ item.name }}&lt;/h4&gt;
+  &lt;p class&#x3D;&quot;card-text&quot;&gt;{{ item.reference }}&lt;/p&gt;
   &lt;div *ngIf&#x3D;&quot;2 !&#x3D; item.state&quot;&gt;
-    &lt;button class&#x3D;&quot;btn btn-primary&quot; *ngIf&#x3D;&quot;1 !&#x3D; item.payload.val().state&quot; (click)&#x3D;&quot;changeState(item, 1)&quot;&gt;En cours&lt;/button&gt;
-    &lt;button class&#x3D;&quot;btn btn-primary&quot; (click)&#x3D;&quot;changeState(item, 2)&quot;&gt;Livrée&lt;/button&gt;
+    &lt;button class&#x3D;&quot;btn btn-primary&quot; *ngIf&#x3D;&quot;1 !&#x3D; item.state&quot; (click)&#x3D;&quot;changeState(item, 1)&quot;&gt;En cours&lt;/button&gt;
+    &lt;button class&#x3D;&quot;btn btn-primary&quot; (click)&#x3D;&quot;changeState(item.key, 2)&quot;&gt;Livrée&lt;/button&gt;
   &lt;/div&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+</code></pre>
     </div>
 
     <div class="tab-pane fade" id="tree">
@@ -722,7 +828,7 @@ export class ItemComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="card-header">  <span [appState]="item.payload.val().state">aa</span></div><div class="card-body">  <h4 class="card-title">{{ item.payload.val().name }}</h4>  <p class="card-text">{{ item.payload.val().reference }}</p>  <div *ngIf="2 != item.state">    <button class="btn btn-primary" *ngIf="1 != item.payload.val().state" (click)="changeState(item, 1)">En cours</button>    <button class="btn btn-primary" (click)="changeState(item, 2)">Livrée</button>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="card-header">  <span [appState]="item.state">aa</span></div><div class="card-body">  <h4 class="card-title">{{ item.name }}</h4>  <p class="card-text">{{ item.reference }}</p>  <div *ngIf="2 != item.state">    <button class="btn btn-primary" *ngIf="1 != item.state" (click)="changeState(item, 1)">En cours</button>    <button class="btn btn-primary" (click)="changeState(item.key, 2)">Livrée</button>  </div></div></div>'
     var COMPONENTS = [{'name': 'AdditemComponent', 'selector': 'app-additem'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FormComponent', 'selector': 'app-form'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ItemComponent', 'selector': 'app-item'},{'name': 'ListItemsComponent', 'selector': 'app-list-items'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'}];
     var DIRECTIVES = [{'name': 'StateDirective', 'selector': '[appState]'}];
     var ACTUAL_COMPONENT = {'name': 'ItemComponent'};

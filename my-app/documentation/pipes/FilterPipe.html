@@ -504,7 +504,7 @@ export class FilterPipe implements PipeTransform {
 
   transform(value: any, args?: any): any {
     const filtre &#x3D; args.toLowerCase();
-    return filtre ? value.filter( (item) &#x3D;&gt; item.payload.val().name.toLowerCase().indexOf(filtre) !&#x3D;&#x3D; -1 ) : value;
+    return filtre ? value.filter( (item) &#x3D;&gt; item.name.toLowerCase().indexOf(filtre) !&#x3D;&#x3D; -1 ) : value;
   }
 
 }

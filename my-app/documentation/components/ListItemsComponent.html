@@ -565,7 +565,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                 <a href="#changeState">changeState</a>
+                                 <a href="#getMapCollection">getMapCollection</a>
                             </li>
                             <li>
                                  <a href="#ngOnInit">ngOnInit</a>
@@ -588,7 +588,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/items/containers/list-items/list-items.component.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/items/containers/list-items/list-items.component.ts:13</a></div>
                                 </td>
                             </tr>
     
@@ -637,20 +637,20 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <a name="changeState"></a>
-                            <span class="name"><b> changeState</b><a href="#changeState"><span class="fa fa-link"></span></a></span>
+                            <a name="getMapCollection"></a>
+                            <span class="name"><b> getMapCollection</b><a href="#getMapCollection"><span class="fa fa-link"></span></a></span>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-    <code>changeState(item: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, state: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+    <code>getMapCollection()</code>
                         </td>
                     </tr>
     
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/items/containers/list-items/list-items.component.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/items/containers/list-items/list-items.component.ts:20</a></div>
                                 </td>
                             </tr>
     
@@ -658,47 +658,9 @@
                         <td class="col-md-4">
     
                                 <div class="io-description">
-                                        <b>Parameters :</b>
-                                        <table class="params">
-                                            <thead>
-                                                <tr>
-                                                    <td>Name</td>
-                                                    <td>Type</td>
-                                                    <td>Optional</td>
-                                                    <td>Description</td>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                    <tr>
-                                                      <td>item</td>
-                                                      <td>
-                                                              <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-                                                      </td>
-                                                      <td>
-                                                      </td>
-                                                      <td></td>
-                                                    </tr>
-                                                    <tr>
-                                                      <td>state</td>
-                                                      <td>
-                                                              <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                                      </td>
-                                                      <td>
-                                                      </td>
-                                                      <td></td>
-                                                    </tr>
-                                            </tbody>
-                                        </table>
-                                </div>
-                                <div>
-                                </div>
-                                <div class="io-description">
                                     <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
     
                                 </div>
-                                    <div class="io-description">
-                                        
-                                    </div>
                         </td>
                     </tr>
                 </tbody>
@@ -720,7 +682,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/items/containers/list-items/list-items.component.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/items/containers/list-items/list-items.component.ts:16</a></div>
                                 </td>
                             </tr>
     
@@ -764,7 +726,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/items/containers/list-items/list-items.component.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/items/containers/list-items/list-items.component.ts:13</a></div>
                                 </td>
                             </tr>
     
@@ -778,6 +740,8 @@
     <div class="tab-pane fade tab-source-code" id="source">
         <pre class="line-numbers"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { CollectionService } from &#x27;@app/core&#x27;;
+import {Observable, BehaviorSubject} from &#x27;rxjs&#x27;;
+import { Item } from &#x27;@app/items&#x27;;
 
 @Component({
   selector: &#x27;app-list-items&#x27;,
@@ -790,13 +754,23 @@ export class ListItemsComponent implements OnInit {
   constructor(private _CollectionService: CollectionService) { }
 
   ngOnInit() {
-    // this._CollectionService.collection.subscribe();
-    this.collection &#x3D; this._CollectionService.collection;
+    this.getMapCollection();
   }
 
-  changeState(item: any, state: number) {
-    console.log(item.key)
-    this._CollectionService.changeState(item.key, state);
+  getMapCollection() {
+    this._CollectionService.collection.map((res) &#x3D;&gt; {
+      return res.map(data &#x3D;&gt; {
+        return {
+          key: data.key,
+          name: data.payload.val().name,
+          reference: data.payload.val().reference,
+          state: data.payload.val().state
+        }
+      });
+    }).subscribe(result &#x3D;&gt; {
+      this.collection &#x3D; result;
+      // console.log(this.collection)
+    });
   }
 }
 </code></pre>
@@ -811,7 +785,7 @@ export class ListItemsComponent implements OnInit {
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class&#x3D;&quot;container&quot;&gt;
-  &lt;div *ngFor&#x3D;&quot;let item of (collection | async) | filter:recherche.value&quot; class&#x3D;&quot;card&quot;&gt;
+  &lt;div *ngFor&#x3D;&quot;let item of collection | filter:recherche.value&quot; class&#x3D;&quot;card&quot;&gt;
     &lt;app-item [item]&#x3D;&quot;item&quot;&gt;&lt;/app-item&gt;
   &lt;/div&gt;
 &lt;/div&gt;
@@ -841,7 +815,7 @@ export class ListItemsComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="container">  <div class="navbar navbar-light">    <form class="form-inline">      <input (keyup)="$event" #recherche class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">    </form>  </div></div><div class="container">  <div *ngFor="let item of (collection | async) | filter:recherche.value" class="card">    <app-item [item]="item"></app-item>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="container">  <div class="navbar navbar-light">    <form class="form-inline">      <input (keyup)="$event" #recherche class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">    </form>  </div></div><div class="container">  <div *ngFor="let item of collection | filter:recherche.value" class="card">    <app-item [item]="item"></app-item>  </div></div></div>'
     var COMPONENTS = [{'name': 'AdditemComponent', 'selector': 'app-additem'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FormComponent', 'selector': 'app-form'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ItemComponent', 'selector': 'app-item'},{'name': 'ListItemsComponent', 'selector': 'app-list-items'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'}];
     var DIRECTIVES = [{'name': 'StateDirective', 'selector': '[appState]'}];
     var ACTUAL_COMPONENT = {'name': 'ListItemsComponent'};

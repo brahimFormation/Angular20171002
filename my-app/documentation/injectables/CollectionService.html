@@ -600,7 +600,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/core/services/collection/collection.service.ts:30</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/core/services/collection/collection.service.ts:17</a></div>
                                         </td>
                                     </tr>
             
@@ -661,7 +661,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/core/services/collection/collection.service.ts:34</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/core/services/collection/collection.service.ts:21</a></div>
                                         </td>
                                     </tr>
             
@@ -798,20 +798,7 @@ export class CollectionService {
     this.itemsRef &#x3D; afDb.list(&#x27;collection&#x27;);
     // this.collection &#x3D; this.itemsRef.valueChanges();
     this.collection &#x3D; this.itemsRef.snapshotChanges();
-    // this.getCollection();
   }
-
-  // getCollection() {
-  //   this.itemsRef.snapshotChanges()
-  //   .subscribe(res &#x3D;&gt; {
-  //     res.forEach(data &#x3D;&gt; {
-  //       console.log(data.key);
-  //       console.log(data.payload.val().name);
-  //       console.log(data.payload.val().reference);
-  //       console.log(data.payload.val().state);
-  //     });
-  //   })
-  // }
   
   addItem(item: Item) {
     this.afDb.list(&#x27;collection&#x27;).push(item);
