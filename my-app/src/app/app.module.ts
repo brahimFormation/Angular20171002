@@ -25,7 +25,7 @@ import { AppComponent } from '@app/app.component';
 })
 export class AppModule { 
   constructor(router: Router) {
-    if (environment.production) {
+    if (!environment.production) {
       console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
     }
   }

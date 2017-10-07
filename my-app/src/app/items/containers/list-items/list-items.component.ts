@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CollectionService } from '@app/core';
+import {Observable, BehaviorSubject} from 'rxjs';
+import { Item } from '@app/items';
 
 @Component({
   selector: 'app-list-items',
@@ -12,12 +14,22 @@ export class ListItemsComponent implements OnInit {
   constructor(private _CollectionService: CollectionService) { }
 
   ngOnInit() {
-    // this._CollectionService.collection.subscribe();
-    this.collection = this._CollectionService.collection;
+    this.getMapCollection();
   }
 
-  changeState(item: any, state: number) {
-    console.log(item.key)
-    this._CollectionService.changeState(item.key, state);
+  getMapCollection() {
+    this._CollectionService.collection.map((res) => {
+      return res.map(data => {
+        return {
+          key: data.key,
+          name: data.payload.val().name,
+          reference: data.payload.val().reference,
+          state: data.payload.val().state
+        }
+      });
+    }).subscribe(result => {
+      this.collection = result;
+      console.log(this.collection)
+    });
   }
 }
