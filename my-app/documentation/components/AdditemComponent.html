@@ -556,6 +556,9 @@
                             <li>
                                  <a href="#ngOnInit">ngOnInit</a>
                             </li>
+                            <li>
+                                 <a href="#openModal">openModal</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -569,12 +572,12 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <code>constructor(_CollectionService: <a href="../injectables/CollectionService.html">CollectionService</a>)</code>
+                            <code>constructor(_CollectionService: <a href="../injectables/CollectionService.html">CollectionService</a>, modalService: NgbModal)</code>
                         </td>
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/items/containers/additem/additem.component.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/items/containers/additem/additem.component.ts:13</a></div>
                                 </td>
                             </tr>
     
@@ -596,6 +599,15 @@
                                                       <td>_CollectionService</td>
                                                       <td>
                                                                 <code><a href="../injectables/CollectionService.html" target="_self" >CollectionService</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>modalService</td>
+                                                      <td>
+                                                                <code>NgbModal</code>
                                                       </td>
                                                       <td>
                                                       </td>
@@ -636,7 +648,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/items/containers/additem/additem.component.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/items/containers/additem/additem.component.ts:20</a></div>
                                 </td>
                             </tr>
     
@@ -697,7 +709,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/items/containers/additem/additem.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/items/containers/additem/additem.component.ts:17</a></div>
                                 </td>
                             </tr>
     
@@ -712,6 +724,67 @@
                     </tr>
                 </tbody>
             </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="openModal"></a>
+                            <span class="name"><b> openModal</b><a href="#openModal"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>openModal(modalParams: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/items/containers/additem/additem.component.ts:24</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Type</td>
+                                                    <td>Optional</td>
+                                                    <td>Description</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                      <td>modalParams</td>
+                                                      <td>
+                                                              <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
     </section>
 
 </div>
@@ -719,7 +792,9 @@
 
     <div class="tab-pane fade tab-source-code" id="source">
         <pre class="line-numbers"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { NgbModal } from &#x27;@ng-bootstrap/ng-bootstrap&#x27;;
 
+import { ModalComponent } from &#x27;@app/shared&#x27;;
 import { CollectionService } from &#x27;@app/core&#x27;;
 import { Item } from &#x27;@app/items&#x27;;
 
@@ -730,7 +805,7 @@ import { Item } from &#x27;@app/items&#x27;;
 })
 export class AdditemComponent implements OnInit {
 
-  constructor(private _CollectionService: CollectionService) { }
+  constructor(private _CollectionService: CollectionService, private modalService: NgbModal) { }
 
   ngOnInit() {
   }
@@ -738,12 +813,18 @@ export class AdditemComponent implements OnInit {
   addItem(item: Item) {
     this._CollectionService.addItem(item);
   }
+
+  openModal(modalParams: any) {
+    const modalRef &#x3D; this.modalService.open(ModalComponent);
+    modalRef.componentInstance.msg &#x3D; modalParams.msg;
+    modalRef.componentInstance.route &#x3D; modalParams.route;
+  }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade" id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;app-form (newItem)&#x3D;&quot;addItem($event)&quot;&gt;&lt;/app-form&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;app-form (newItem)&#x3D;&quot;addItem($event)&quot; (modalParams)&#x3D;&quot;openModal($event)&quot;&gt;&lt;/app-form&gt;
 </code></pre>
     </div>
 
@@ -770,7 +851,7 @@ export class AdditemComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><app-form (newItem)="addItem($event)"></app-form></div>'
+        var COMPONENT_TEMPLATE = '<div><app-form (newItem)="addItem($event)" (modalParams)="openModal($event)"></app-form></div>'
     var COMPONENTS = [{'name': 'AdditemComponent', 'selector': 'app-additem'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FormComponent', 'selector': 'app-form'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ItemComponent', 'selector': 'app-item'},{'name': 'ListItemsComponent', 'selector': 'app-list-items'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'}];
     var DIRECTIVES = [{'name': 'StateDirective', 'selector': '[appState]'}];
     var ACTUAL_COMPONENT = {'name': 'AdditemComponent'};

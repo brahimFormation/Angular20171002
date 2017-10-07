@@ -670,7 +670,7 @@ import { AppComponent } from &#x27;@app/app.component&#x27;;
 })
 export class AppModule { 
   constructor(router: Router) {
-    if (environment.production) {
+    if (!environment.production) {
       console.log(&#x27;Routes: &#x27;, JSON.stringify(router.config, undefined, 2));
     }
   }

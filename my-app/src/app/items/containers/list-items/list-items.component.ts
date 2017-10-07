@@ -29,7 +29,7 @@ export class ListItemsComponent implements OnInit {
       });
     }).subscribe(result => {
       this.collection = result;
-      console.log(this.collection)
+      // console.log(this.collection)
     });
   }
 }
