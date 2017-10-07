@@ -6,7 +6,7 @@
   </div>
 </div>
 <div class="container">
-  <div *ngFor="let item of (collection | async) | filter:recherche.value" class="card">
+  <div *ngFor="let item of collection | filter:recherche.value" class="card">
     <app-item [item]="item"></app-item>
   </div>
 </div>

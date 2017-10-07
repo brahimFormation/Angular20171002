@@ -12,20 +12,7 @@ export class CollectionService {
     this.itemsRef = afDb.list('collection');
     // this.collection = this.itemsRef.valueChanges();
     this.collection = this.itemsRef.snapshotChanges();
-    // this.getCollection();
   }
-
-  // getCollection() {
-  //   this.itemsRef.snapshotChanges()
-  //   .subscribe(res => {
-  //     res.forEach(data => {
-  //       console.log(data.key);
-  //       console.log(data.payload.val().name);
-  //       console.log(data.payload.val().reference);
-  //       console.log(data.payload.val().state);
-  //     });
-  //   })
-  // }
   
   addItem(item: Item) {
     this.afDb.list('collection').push(item);
