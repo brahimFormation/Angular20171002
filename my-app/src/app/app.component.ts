@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CollectionService } from './item-module/collection.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +6,5 @@ import { CollectionService } from './item-module/collection.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor() {
-  
-  }
+  constructor() { }
 }

@@ -1,0 +1,11 @@
+<div class="card-header">
+  <span [appState]="item.payload.val().state">aa</span>
+</div>
+<div class="card-body">
+  <h4 class="card-title">{{ item.payload.val().name }}</h4>
+  <p class="card-text">{{ item.payload.val().reference }}</p>
+  <div *ngIf="2 != item.state">
+    <button class="btn btn-primary" *ngIf="1 != item.payload.val().state" (click)="changeState(item, 1)">En cours</button>
+    <button class="btn btn-primary" (click)="changeState(item, 2)">Livrée</button>
+  </div>
+</div>
