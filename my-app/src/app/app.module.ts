@@ -1,36 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { ItemModuleModule } from './item-module/item-module.module';
-import { AppRoutingModule } from './app-routing/app-routing.module';
-import { ItemsRoutingModule } from './items-routing/items-routing.module';
-import { environment } from '../environments/environment.prod';
+import { Router } from '@angular/router';
 
-import { AppComponent } from './app.component';
-import { MenuComponent } from './menu/menu.component';
-import { ModalComponent } from './modal/modal.component';
-import { HomeComponent } from './home/home.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { CoreModule } from '@app/core/core.module';
+import { SharedModule } from '@app/shared/shared.module';
+import { AppRoutingModule } from '@app/app-routing.module';
+
+import { environment } from '@env/environment.prod';
+
+import { AppComponent } from '@app/app.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MenuComponent,
-    ModalComponent,
-    HomeComponent,
-    PageNotFoundComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    NgbModule.forRoot(),
-    ItemModuleModule,
-    ItemsRoutingModule,
-    AppRoutingModule
-  ],
-  entryComponents: [
-    ModalComponent
+    AppRoutingModule,
+    CoreModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(router: Router) {
+    if (environment.production) {
+      console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
+    }
+  }
+}
