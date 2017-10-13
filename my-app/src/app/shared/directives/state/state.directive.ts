@@ -1,4 +1,5 @@
 import { Directive, Input, ElementRef, Renderer2, OnChanges } from '@angular/core';
+import { States } from '@app/shared/enums/states.enum';
 
 @Directive({
   selector: '[appState]'
@@ -10,15 +11,17 @@ export class StateDirective implements OnChanges {
   ngOnChanges() {
     const cssClass = `state-${this.appState}`;
     let text: string;
+    let states = States;
     const elementNode = this._ElementRef.nativeElement;
+    // console.log(typeof(states.ALIVRER));
     switch (this.appState) {
-      case 0:
+      case states.ALIVRER:
         text = 'A livrer';
         break;
-      case 1:
+      case states.ENCOURS:
         text = 'En cours de livraison';
         break;
-      case 2:
+      case states.LIVREE:
         text = 'Commande livrée';
         break;
       default:
@@ -27,6 +30,8 @@ export class StateDirective implements OnChanges {
     }
 
     this._Renderer2.addClass(elementNode, cssClass);
-    elementNode.innerHTML = text;
+    // elementNode.innerHTML = text;
+    const nodeText = this._Renderer2.createText(text);
+    this._Renderer2.appendChild(elementNode, nodeText);
   }
 }
