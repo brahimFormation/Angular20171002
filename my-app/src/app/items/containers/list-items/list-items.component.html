@@ -1,12 +1,13 @@
 <div class="container">
   <div class="navbar navbar-light">
-    <form class="form-inline">
+      <app-search></app-search>
+<!--     <form class="form-inline">
       <input (keyup)="$event" #recherche class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-    </form>
+    </form> -->
   </div>
 </div>
 <div class="container">
-  <div *ngFor="let item of collection | filter:recherche.value" class="card">
+  <div *ngFor="let item of (collection | async)" class="card">
     <app-item [item]="item"></app-item>
   </div>
 </div>

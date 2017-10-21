@@ -1,0 +1,6 @@
+<form [formGroup]="form">
+  <input formControlName="search" type="text" class="form-control">
+</form>
+<div *ngFor='let res of listItems | async'>
+<span> {{res.name}}</span>
+</div>

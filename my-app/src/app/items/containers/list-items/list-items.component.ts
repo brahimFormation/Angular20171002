@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import {Observable} from 'rxjs';
+import { ItemId } from '@app/items/interfaces/item-id';
 import { CollectionService } from '@app/core';
-import {Observable, BehaviorSubject} from 'rxjs';
-import { Item } from '@app/items';
 
 @Component({
   selector: 'app-list-items',
@@ -9,27 +9,10 @@ import { Item } from '@app/items';
   styleUrls: ['./list-items.component.scss']
 })
 
-export class ListItemsComponent implements OnInit {
-  collection: any;
-  constructor(private _CollectionService: CollectionService) { }
+export class ListItemsComponent {
+  collection: Observable<ItemId[]>;
 
-  ngOnInit() {
-    this.getMapCollection();
-  }
-
-  getMapCollection() {
-    this._CollectionService.collection.map((res) => {
-      return res.map(data => {
-        return {
-          key: data.key,
-          name: data.payload.val().name,
-          reference: data.payload.val().reference,
-          state: data.payload.val().state
-        }
-      });
-    }).subscribe(result => {
-      this.collection = result;
-      // console.log(this.collection)
-    });
+  constructor(private service : CollectionService) {
+    this.collection  = this.service.collection;
   }
 }
