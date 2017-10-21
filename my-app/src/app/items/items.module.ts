@@ -9,6 +9,7 @@ import { ItemComponent } from '@app/items';
 import { FormComponent } from '@app/items';
 import { AdditemComponent } from '@app/items';
 import { ListItemsComponent } from '@app/items';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { ListItemsComponent } from '@app/items';
     ListItemsComponent,
     FormComponent,
     AdditemComponent,
-    ItemComponent
+    ItemComponent,
+    SearchComponent
   ]
 })
 export class ItemsModule { }
