@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { ModalComponent } from '@app/shared';
-import { CollectionService } from '@app/core';
 import { Item } from '@app/items';
+import { CollectionService } from '@app/core';
 
 @Component({
   selector: 'app-additem',

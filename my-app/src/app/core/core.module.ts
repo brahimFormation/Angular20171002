@@ -5,7 +5,6 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CoreRoutingModule } from './core-routing.module';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '@env/environment.prod';
@@ -20,7 +19,6 @@ import { PageNotFoundComponent } from '@app/core';
     CommonModule,
     CoreRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,
     AngularFirestoreModule,
     AngularFireAuthModule
   ],
@@ -34,10 +32,10 @@ import { PageNotFoundComponent } from '@app/core';
     CollectionService
   ]
 })
-export class CoreModule { 
+export class CoreModule {
   /**
    * @constructor make sure CoreModule is imported only by one NgModule the AppModule
-   * @param parentModule 
+   * @param parentModule
    */
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
     if (parentModule) {
