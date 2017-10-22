@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from '@app/core/guards/auth.guard';
 
 const appRoutes: Routes = [
-  { path: 'items', loadChildren: './items/items.module#ItemsModule' },
+  { path: 'items', loadChildren: './items/items.module#ItemsModule', canActivate: [AuthGuard] },
   { path: '',
     redirectTo: '/home',
     pathMatch: 'full'

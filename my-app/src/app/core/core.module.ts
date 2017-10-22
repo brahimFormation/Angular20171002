@@ -13,6 +13,7 @@ import { CollectionService } from '@app/core';
 
 import { HomeComponent } from '@app/core';
 import { PageNotFoundComponent } from '@app/core';
+import { AuthService } from '@app/core/services/auth/auth.service';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { PageNotFoundComponent } from '@app/core';
   exports: [
   ],
   providers: [
-    CollectionService
+    CollectionService,
+    AuthService
   ]
 })
 export class CoreModule {

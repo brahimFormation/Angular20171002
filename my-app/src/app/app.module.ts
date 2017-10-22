@@ -23,7 +23,7 @@ import { AppComponent } from '@app/app.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
+export class AppModule {
   constructor(router: Router) {
     if (!environment.production) {
       console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
