@@ -20,7 +20,7 @@ import { AuthService } from '@app/core/services/auth/auth.service';
     CommonModule,
     CoreRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
+    AngularFirestoreModule.enablePersistence(),
     AngularFireAuthModule
   ],
   declarations: [
