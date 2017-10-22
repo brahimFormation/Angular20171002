@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { AuthGuard } from '@app/core/guards/auth.guard';
 
 const appRoutes: Routes = [
@@ -16,6 +16,7 @@ const appRoutes: Routes = [
     CommonModule,
     RouterModule.forRoot(
       appRoutes,
+      {preloadingStrategy:  PreloadAllModules}
       // { enableTracing: true } // <-- debugging purposes only
     )
   ],
