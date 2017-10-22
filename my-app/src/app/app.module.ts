@@ -6,7 +6,7 @@ import { CoreModule } from '@app/core/core.module';
 import { SharedModule } from '@app/shared/shared.module';
 import { AppRoutingModule } from '@app/app-routing.module';
 
-import { environment } from '@env/environment.prod';
+import { environment } from '@env/environment';
 
 import { AppComponent } from '@app/app.component';
 
