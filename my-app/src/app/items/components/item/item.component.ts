@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 import { CollectionService } from '@app/core';
 
-import { Item } from '../../interfaces/item';
 import { States } from '@app/shared/enums/states.enum';
+import { ItemId } from '@app/items/interfaces/item-id';
 
 @Component({
   selector: 'app-item',
@@ -12,7 +12,7 @@ import { States } from '@app/shared/enums/states.enum';
 })
 export class ItemComponent implements OnInit {
 
-  @Input('item') item: Item;
+  @Input('item') item: ItemId;
   states = States;
 
   constructor(private _CollectionService: CollectionService) { }
@@ -20,8 +20,13 @@ export class ItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  changeState(key: string, state: number) {
-    console.log(key);
-    this._CollectionService.changeState(key, state);
+  deleteItem(item: ItemId) {
+    this._CollectionService.delete(item);
+  }
+
+  changeState(item: ItemId, state: number) {
+    // console.log(key);
+    item.state = state;
+    this._CollectionService.changeState(item);
   }
 }

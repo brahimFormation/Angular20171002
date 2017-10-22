@@ -5,6 +5,7 @@ import 'rxjs/add/operator/do';
 import { Item } from '@app/items';
 import { ItemId } from '@app/items/interfaces/item-id';
 import { BehaviorSubject } from 'rxjs';
+import  * as firebase  from 'firebase/app';
 
 @Injectable()
 export class CollectionService {
@@ -22,8 +23,11 @@ export class CollectionService {
   getCollection() {
     this.collection = this.search$.switchMap(term => {
      return this.afs.collection<Item>('collection', ref => {
-      let query:any  = ref;
-      if (term) { query = query.where('name', '==', term) }
+      let query:firebase.firestore.CollectionReference | firebase.firestore.Query  = ref;
+      if (term) {
+        query = query.where('name','==',term);
+        console.log(term);
+      }
       else {
         query = query.orderBy('name')
       }
@@ -49,7 +53,11 @@ export class CollectionService {
     this.afs.collection<Item>('collection').add(item);
   }
 
-  changeState(key: string, newState: number) {
-    // this.itemsRef.update(key, {state: newState});
+  changeState(item: ItemId) {
+    this.afs.doc<Item>('collection/'+item.id).update(item);
+  }
+
+  delete(item: ItemId) {
+    this.afs.doc<Item>('collection/'+item.id).delete();
   }
 }

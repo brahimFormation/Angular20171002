@@ -11,7 +11,7 @@ import { FilterPipe } from '@app/shared';
 import { StateDirective } from '@app/shared';
 
 import { MenuComponent } from '@app/shared';
-import { ModalComponent } from '@app/shared';
+import { ModalComponent, UserProfileComponent } from '@app/shared';
 
 
 @NgModule({
@@ -24,7 +24,8 @@ import { ModalComponent } from '@app/shared';
     FilterPipe,
     StateDirective,
     MenuComponent,
-    ModalComponent
+    ModalComponent,
+    UserProfileComponent
   ],
   exports: [
     FilterPipe,

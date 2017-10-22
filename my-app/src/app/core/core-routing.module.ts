@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from '@app/core';
 import { PageNotFoundComponent } from '@app/core';
+import { AuthGuard } from '@app/core/guards/auth.guard';
 
 
 const itemsRoutes: Routes = [
@@ -21,6 +22,9 @@ const itemsRoutes: Routes = [
   exports: [
     RouterModule
   ],
-  declarations: []
+  declarations: [],
+  providers: [
+    AuthGuard
+  ]
 })
 export class CoreRoutingModule { }
